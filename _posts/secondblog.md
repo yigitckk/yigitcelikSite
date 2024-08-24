@@ -2,18 +2,30 @@
 date: '2022-07-08T11:50:54.000Z'
 title: Second Blog
 tagline: This is a Tagline If you want to add.
-preview: >-
-  Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-  Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
-  when an unknown printer took a galley of type and scrambled it to make a type
-  specimen book.
+preview: 'I''m trying to see if it works '
 image: >-
   https://images.unsplash.com/photo-1656427868828-79a829b92b2b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1332&q=80
 ---
 
 # Heading One
 
-**Lorem Ipsum** is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+**Lorem Ipsum** /b yeah ```c# 
+  printf("ok");
+```
+
+> Use quote blocks to emulate reply text.
+> This line is part of the same quote.
+
+This line is not formatted and does not belong to the quote block.
+
+> This block spans multiple paragraphs.
+>
+> The second paragraph is grouped with the previous paragraph in the same quote block.
+> Character formatting is _also_ supported inside the **quote block**.
+
+> Quote blocks can also be nested.
+>> When you start a new line with additional > characters,
+>>> it simulates a threaded conversation.
 
 ## This is Heading Two
 
