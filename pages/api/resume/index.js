@@ -1,11 +1,10 @@
 import clientPromise from '/lib/mongodb.js';
 
-
 export default async function handler(req, res) {
   try {
     // Await the connection to the MongoDB client
     const client = await clientPromise;
-    
+
     // Specify your MongoDB database name
     const db = client.db('Portfolio'); // Replace with your actual database name
     
@@ -29,7 +28,7 @@ export default async function handler(req, res) {
   } catch (error) {
     // Log the error for debugging
     console.error('Error fetching resume data:', error);
-    
+
     // Return a 500 Internal Server Error response
     res.status(500).json({ error: 'Internal Server Error' });
   }
