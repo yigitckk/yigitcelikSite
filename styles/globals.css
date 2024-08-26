@@ -75,3 +75,34 @@ body {
   background: inherit;
   border-radius: inherit;
 }
+
+/* Ensure there's no rule setting the cursor to 'none' or other custom styles */
+* {
+  cursor: auto; /* or default */
+}
+
+.sketch-underline {
+  display: block;
+  width: 100%;
+  height: 3px; /* Adjust height for thickness */
+  background: linear-gradient(90deg, rgba(240, 233, 233, 0) 0%, rgba(114, 130, 216, 0.5) 50%, rgba(0,0,0,0) 100%);
+  background-size: 100% 3px;
+  background-repeat: no-repeat;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  z-index: -1; /* Ensure it's behind the text */
+  animation: sketchyUnderline 2s infinite;
+}
+
+@keyframes sketchyUnderline {
+  0% {
+    background-position: 0% 0%;
+  }
+  50% {
+    background-position: 100% 0%;
+  }
+  100% {
+    background-position: 0% 0%;
+  }
+}

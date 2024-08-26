@@ -6,22 +6,56 @@ import ProjectResume from "../components/ProjectResume";
 import Socials from "../components/Socials";
 import Button from "../components/Button";
 import { useTheme } from "next-themes";
-// Data
-import { name, showResume } from "../data/portfolio.json";
-import { resume } from "../data/portfolio.json";
-import data from "../data/portfolio.json";
 
 const Resume = () => {
   const router = useRouter();
   const theme = useTheme();
   const [mount, setMount] = useState(false);
+  const [resumeData, setResumeData] = useState(null);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     setMount(true);
-    if (!showResume) {
-      router.push("/");
-    }
-  }, []);
+
+    const fetchResumeData = async () => {
+      try {
+        const response = await fetch('/api/resume');
+        if (!response.ok) {
+          throw new Error('Failed to fetch resume data');
+        }
+        const data = await response.json();
+        if (!data || !data.resume) {
+          // Ensure data has the expected structure
+          throw new Error('Invalid resume data structure');
+        }
+        setResumeData(data);
+        setLoading(false);
+        if (!data.showResume) {
+          router.push("/");
+        }
+      } catch (error) {
+        console.error(error);
+        router.push("/");
+      }
+    };
+
+    fetchResumeData();
+  }, [router]);
+
+  if (loading) {
+    return <p>Loading...</p>; // Handle loading state
+  }
+
+  if (!resumeData) {
+    return <p>No resume data found</p>; // Handle no data state
+  }
+
+  const { name, showResume, resume } = resumeData;
+
+  // Ensure resume exists before rendering its properties
+  if (!resume) {
+    return <p>No detailed resume data available</p>;
+  }
 
   // Define background color classes based on theme
   const backgroundColorClass = theme.theme === "dark" ? "bg-slate-800" : "bg-gray-50";
@@ -35,10 +69,10 @@ const Resume = () => {
           </Button>
         </div>
       )}
-      {data.showCursor && <Cursor />}
+      {showResume && <Cursor />}
       <div
         className={`container mx-auto mb-10 ${
-          data.showCursor && "cursor-none"
+          showResume && "cursor-none"
         }`}
       >
         <Header isBlog />
@@ -57,30 +91,40 @@ const Resume = () => {
               </div>
               <div className="mt-5">
                 <h1 className="text-2xl font-bold">Experience</h1>
-
-                {resume.experiences.map(
-                  ({ id, dates, type, position, bullets }) => (
-                    <ProjectResume
-                      key={id}
-                      dates={dates}
-                      type={type}
-                      position={position}
-                      bullets={bullets}
-                    ></ProjectResume>
+                <h2 className="w-4/5 text-xl mt-5 opacity-50"> No experiences so far, please check my github page!</h2>
+                {resume.experiences ? (
+                  resume.experiences.map(
+                    ({ id, dates, type, position, bullets }) => (
+                      <ProjectResume
+                        key={id}
+                        dates={dates}
+                        type={type}
+                        position={position}
+                        bullets={bullets}
+                      />
+                    )
                   )
+                ) : (
+                  <p>No experience data available.</p>
                 )}
               </div>
               <div className="mt-5">
                 <h1 className="text-2xl font-bold">Education</h1>
-                <div className="mt-2">
-                  <h2 className="text-lg">{resume.education.universityName}</h2>
-                  <h3 className="text-sm opacity-75">
-                    {resume.education.universityDate}
-                  </h3>
-                  <p className="text-sm mt-2 opacity-50">
-                    {resume.education.universityPara}
-                  </p>
-                </div>
+                {resume.education && resume.education.length > 0 ? (
+                  resume.education.map((edu, index) => (
+                    <div key={index} className="mt-2">
+                      <h2 className="text-lg">{edu.universityName}</h2>
+                      <h3 className="text-sm opacity-75">
+                        {edu.universityDate}
+                      </h3>
+                      <p className="text-sm mt-2 opacity-50">
+                        {edu.universityPara}
+                      </p>
+                    </div>
+                  ))
+                ) : (
+                  <p>No education data available.</p>
+                )}
               </div>
               <div className="mt-5">
                 <h1 className="text-2xl font-bold">Skills</h1>
@@ -97,7 +141,6 @@ const Resume = () => {
                       </ul>
                     </div>
                   )}
-
                   {resume.frameworks && (
                     <div className="mt-2 mob:mt-5">
                       <h2 className="text-lg">Frameworks</h2>
@@ -110,7 +153,6 @@ const Resume = () => {
                       </ul>
                     </div>
                   )}
-
                   {resume.others && (
                     <div className="mt-2 mob:mt-5">
                       <h2 className="text-lg">Others</h2>

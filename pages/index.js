@@ -71,12 +71,19 @@ export default function Home() {
             >
               {data.headerTaglineOne}
             </h1>
-            <h1
-              ref={textTwo}
-              className="text-3xl tablet:text-6xl laptop:text-6xl laptopl:text-8xl p-1 tablet:p-2 text-bold w-full laptop:w-4/5"
-            >
-              {data.headerTaglineTwo}
-            </h1>
+            <div className="flex items-center space-x-4">
+  <h1
+    ref={textTwo}
+    className="text-3xl tablet:text-6xl laptop:text-6xl laptopl:text-8xl p-1 tablet:p-2 "
+  >
+    {data.headerTaglineTwo}
+  </h1>
+  <h2 className="relative text-3xl tablet:text-6xl laptop:text-6xl laptopl:text-8xl font-bold">
+    {data.headerTaglineFive}
+    <span className="absolute left-0 bottom-0 w-full sketch-underline"></span>
+  </h2>
+</div>
+
             <h1
               ref={textThree}
               className="text-3xl tablet:text-6xl laptop:text-6xl laptopl:text-8xl p-1 tablet:p-2 text-bold w-full laptop:w-4/5"
