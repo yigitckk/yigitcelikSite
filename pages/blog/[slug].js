@@ -36,26 +36,26 @@ const BlogPost = ({ post }) => {
         }`}
       >
         <Header isBlog={true} />
-        <div className="mt-10 flex flex-col">
+        <div className="mt-10 flex flex-col items-center">
           <img
-            className="w-full h-96 rounded-lg shadow-lg object-cover"
+            className="w-full max-w-4xl h-auto rounded-lg shadow-lg object-cover"
             src={post.image}
             alt={post.title}
-          ></img>
+          />
           <h1
             ref={textOne}
-            className="mt-10 text-4xl mob:text-2xl laptop:text-6xl text-bold"
+            className="mt-10 text-4xl md:text-5xl lg:text-6xl font-bold text-center"
           >
             {post.title}
           </h1>
           <h2
             ref={textTwo}
-            className="mt-2 text-xl max-w-4xl text-darkgray opacity-50"
+            className="mt-2 text-lg md:text-xl lg:text-2xl max-w-4xl text-center text-darkgray opacity-75"
           >
             {post.tagline}
           </h2>
         </div>
-        <ContentSection content={post.content}></ContentSection>
+        <ContentSection content={post.content} />
         <Footer />
       </div>
       {process.env.NODE_ENV === "development" && (
@@ -84,7 +84,6 @@ export async function getStaticProps({ params }) {
     "preview",
     "title",
     "tagline",
-    "preview",
     "image",
     "content",
   ]);
@@ -102,14 +101,13 @@ export async function getStaticPaths() {
   const posts = getAllPosts(["slug"]);
 
   return {
-    paths: posts.map((post) => {
-      return {
-        params: {
-          slug: post.slug,
-        },
-      };
-    }),
+    paths: posts.map((post) => ({
+      params: {
+        slug: post.slug,
+      },
+    })),
     fallback: false,
   };
 }
+
 export default BlogPost;
