@@ -86,8 +86,8 @@ export default function Home() {
 
             <h1
               ref={textThree}
-              className="text-3xl tablet:text-6xl laptop:text-6xl laptopl:text-8xl p-1 tablet:p-2 text-bold w-full laptop:w-4/5"
-            >
+              className="text-xl tablet:text-3xl laptop:text-4xl laptopl:text-5xl p-1 tablet:p-2"
+ >
               {data.headerTaglineThree}
             </h1>
             <h1
@@ -128,6 +128,7 @@ export default function Home() {
             ))}
           </div>
         </div>
+        
         {/* This button should not go into production */}
         {process.env.NODE_ENV === "development" && (
           <div className="fixed bottom-5 right-5">
@@ -136,12 +137,20 @@ export default function Home() {
             </Link>
           </div>
         )}
-        <div className="mt-10 laptop:mt-40 p-2 laptop:p-0" ref={aboutRef}>
-          <h1 className="tablet:m-10 text-2xl text-bold">About.</h1>
-          <p className="tablet:m-10 mt-2 text-xl laptop:text-3xl w-full laptop:w-3/5">
-            {data.aboutpara}
-          </p>
-        </div>
+        <div className="mt-10 laptop:mt-40 p-2 laptop:p-0 relative" ref={aboutRef}>
+  <h1 className="tablet:m-10 text-2xl font-bold">About.</h1>
+  <p className="tablet:m-10 mt-2 text-xl laptop:text-3xl w-full laptop:w-3/5">
+    {data.aboutpara}
+  </p>
+  {/* Add floating logos or text here */}
+  <div className="floating-elements-container absolute top-0 left-0 w-full h-full">
+    {/* Example floating logos or text */}
+    <img src="https://cdn-icons-png.flaticon.com/128/4961/4961544.png" alt="Java Logo" className="floating-text right-10 bottom-40" />
+    <img src="https://cdn-icons-png.flaticon.com/128/11531/11531439.png" alt="Erasmus Logo" className="floating-text right-40 top-20" />
+
+  </div>
+</div>
+
         <Footer />
       </div>
     </div>

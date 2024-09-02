@@ -87,22 +87,15 @@ const Resume = () => {
               </div>
               <div className="mt-5">
                 <h1 className="text-2xl font-bold">Experience</h1>
-                <h2 className="w-4/5 text-xl mt-5 opacity-50">
-                  No experiences so far, please check my GitHub page!
-                </h2>
-                {resume.experiences && resume.experiences.length > 0 ? (
-                  resume.experiences.map(({ id, dates, type, position, bullets }) => (
-                    <ProjectResume
-                      key={id}
-                      dates={dates}
-                      type={type}
-                      position={position}
-                      bullets={bullets}
-                    />
-                  ))
-                ) : (
-                  <p>No experience data available.</p>
-                )}
+                <div className="mt-2">
+                      <h2 className="text-lg">Blog Writer</h2>
+                      <h3 className="text-sm opacity-75">2024-Present</h3>
+                      <p className="text-sm mt-2 opacity-50">I post blogs in this website about the things i learn and my experiences such as computer science concepts, programming languages, mathematical articles, project outcomes etc. 
+                      </p>
+                    </div>
+              
+                
+                
               </div>
               <div className="mt-5">
                 <h1 className="text-2xl font-bold">Education</h1>

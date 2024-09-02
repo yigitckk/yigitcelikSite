@@ -106,3 +106,48 @@ body {
     background-position: 0% 0%;
   }
 }
+
+.about-section {
+  position: relative;
+}
+.floating-logo {
+  position: absolute;
+  animation: float 5s ease-in-out infinite;
+  /* Adjust the size and position */
+  width: 50px; /* Example size */
+  top: 20px; /* Example position */
+  left: 30px; /* Example position */
+}
+@keyframes float {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0); }
+}
+
+.relative {
+  position: relative;
+}
+
+.floating-elements-container {
+  position: absolute;
+  pointer-events: none; /* Ensure the floating elements do not interfere with text */
+}
+
+.floating-logo,
+.floating-text {
+  position: absolute;
+  animation: float 5s ease-in-out infinite;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+

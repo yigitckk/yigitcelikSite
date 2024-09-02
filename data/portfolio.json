@@ -3,8 +3,8 @@
     "headerTaglineOne": "Hello 👋",
     "headerTaglineTwo": "It's",
     "headerTaglineFive": "Yiğit Çelik",
-    "headerTaglineThree": "developer",
-    "headerTaglineFour": " based in Türkiye & Poland",
+    "headerTaglineThree": "Engineering student and developer",
+    "headerTaglineFour": "based in Türkiye & Poland",
     "showCursor": true,
     "showBlog": true,
     "darkMode": true,
@@ -51,8 +51,14 @@
     "resume": {
       "tagline": "👋  I'm an Industrial Engineering and Management student & software developer.",
       "description": "I'm a student and a developer, mostly focused on App and AI development",
-      "experiences": "",
-       "education":[
+      "experiences":{
+        "id": "1",
+        "dates": "2024-",
+        "type": "Blog Writer",
+        "position": "I blog posts about the things i learn and my experiences such as computer science concepts, programming languages, mathematical articles, project outcomes etc."
+
+      }, 
+      "education":[
         {
           "universityName": "Pamukkale University",
           "universityDate": "2022-2026",
