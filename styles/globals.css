@@ -151,3 +151,15 @@ body {
   }
 }
 
+/* Custom Tailwind CSS additions in your global CSS file */
+@media (max-width: 640px) {
+  .floating-elements-container {
+    z-index: -1; /* Ensure floating elements are behind text on mobile */
+  }
+
+  .floating-element {
+    opacity: 0.2; /* Adjust opacity for a subtler effect on mobile */
+    transform: scale(0.8); /* Optional: resize for mobile */
+  }
+}
+

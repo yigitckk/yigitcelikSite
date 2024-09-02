@@ -145,7 +145,7 @@ export default function Home() {
   {/* Add floating logos or text here */}
   <div className="floating-elements-container absolute top-0 left-0 w-full h-full">
     {/* Example floating logos or text */}
-    <img src="https://cdn-icons-png.flaticon.com/128/4961/4961544.png" alt="Java Logo" className="floating-text right-10 bottom-40" />
+    <img src="https://cdn-icons-png.flaticon.com/128/4961/4961544.png" alt="Java Logo" className="floating-text tablet: right-0 bottom-40 laptop:right-30 bottom-40" />
     <img src="https://cdn-icons-png.flaticon.com/128/11531/11531439.png" alt="Erasmus Logo" className="floating-text right-40 top-20" />
 
   </div>
